@@ -3,9 +3,9 @@ module.exports = {
   description: 'Dams punchline',
   async execute(msg, args) {
     if (msg.member.voice.channel) {
+      msg.delete()
       const connection = await msg.member.voice.channel.join()
       const dispatcher = connection.play('./sounds/death.mp3', { volume: 1 })
-      msg.delete()
       dispatcher.on('finish', () => {
         setTimeout(()=>{
           connection.disconnect()
