@@ -4,6 +4,7 @@ module.exports = {
   name: 'stream',
   description: 'Dams stream',
   async execute(msg, args) {
+    console.log(msg, args);
     const data = JSON.stringify({ 
       "w2g_api_key" : process.env.WATCH_API,
       "share" : args,
@@ -13,6 +14,7 @@ module.exports = {
     axios
       .post('https://w2g.tv/rooms/create.json', data)
       .then(res => {
+        console.log(res);
         msg.reply(`Let's go: https://w2g.tv/rooms/${res}`)
       })
       .catch(error => {
