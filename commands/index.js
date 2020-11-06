@@ -1,4 +1,5 @@
 module.exports = {
   Ping: require('./ping'),
-  Speak: require('./speak')
+  Speak: require('./speak'),
+  Fart: require('./fart')
 }
