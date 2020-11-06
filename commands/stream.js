@@ -4,12 +4,12 @@ module.exports = {
   name: 'stream',
   description: 'Dams stream',
   async execute(msg, args) {
-    const data = JSON.stringify({ 
+    const data = { 
       "w2g_api_key" : process.env.WATCH_API,
-      "share" : args,
+      "share" : args[0],
       "bg_color" : "#545454",
-      "bg_opacity" : "50"
-    })
+      "bg_opacity" : "100"
+    }
     axios
       .post('https://w2g.tv/rooms/create.json', data)
       .then(res => {
