@@ -13,8 +13,8 @@ module.exports = {
     axios
       .post('https://w2g.tv/rooms/create.json', data)
       .then(res => {
-        console.log(res);
-        msg.reply(`Let's go: https://w2g.tv/rooms/${streamkey}`)
+        msg.delete()
+        msg.channel.send(`Let's go: https://w2g.tv/rooms/${res.data.streamkey}`)
       })
       .catch(error => {
         msg.channel.send("J'ai pas réussi à créer la room :(")
