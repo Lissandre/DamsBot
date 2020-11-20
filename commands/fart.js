@@ -5,7 +5,7 @@ module.exports = {
     if (msg.member.voice.channel) {
       msg.delete()
       const connection = await msg.member.voice.channel.join()
-      const dispatcher = connection.play('./sounds/fart.mp3', { volume: 3 })
+      const dispatcher = connection.play('./sounds/fart.mp3', { volume: 5 })
       dispatcher.on('finish', () => {
         setTimeout(()=>{
           connection.disconnect()
