@@ -4,11 +4,12 @@ module.exports = {
   async execute(msg, args, bot) {
     if (!msg.guild.me.hasPermission('MOVE_MEMBERS')) return msg.reply('Missing the required `Move Members` permission.')
     if (msg.member.voice.channel) {
+      msg.delete()
       let users = []
       let killUsers = []
       const connection = await msg.member.voice.channel.join()
 
-      connection.channel.guild.members.cache.forEach(member => {
+      msg.guild.channels.cache.get(msg.member.voice.channel.id).members.forEach(member => {
         users.push(member.user)
       })
 
@@ -16,15 +17,14 @@ module.exports = {
         const random = Math.floor(Math.random()*users.length)
         killUsers.push(users[random])
         users.splice(random, 1)
-        console.log(users, killUsers);
       }
 
       killUsers.forEach(user => {
         if (args[0] === '--force') {
-          // msg.guild.member(user.id).voice.setChannel(null)
+          msg.guild.member(user.id).voice.setChannel(null)
         }
         else {
-          // msg.guild.member(user.id).voice.setMute(true)
+          msg.guild.member(user.id).voice.setMute(true)
         }
       })
     }
