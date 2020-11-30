@@ -37,7 +37,7 @@ bot.on('message', msg => {
   else {
     if (!bot.commands.has(command)) return
     try {
-      bot.commands.get(command).execute(msg, args)
+      bot.commands.get(command).execute(msg, args, bot)
     } catch (error) {
       console.error(error)
       msg.reply("Petite erreur pendant l'execution de la commande...")

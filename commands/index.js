@@ -1,8 +1,9 @@
 module.exports = {
-  Ping: require('./ping'),
-  Speak: require('./speak'),
   Fart: require('./fart'),
+  Ping: require('./ping'),
   Sarko: require('./sarko'),
-  Vent: require('./vent'),
+  Snap: require('./snap'),
+  Speak: require('./speak'),
   Stream: require('./stream'),
+  Vent: require('./vent'),
 }
