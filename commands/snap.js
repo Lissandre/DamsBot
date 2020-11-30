@@ -24,7 +24,7 @@ module.exports = {
           msg.guild.member(user.id).voice.setChannel(null)
         }
         else {
-          msg.guild.member(user.id).voice.mute()
+          msg.guild.member(user.id).voice.setMute(true)
         }
       })
     }
