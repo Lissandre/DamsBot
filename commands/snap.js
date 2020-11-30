@@ -20,11 +20,11 @@ module.exports = {
       }
 
       killUsers.forEach(user => {
-        if (args === 'force') {
-          msg.guild.member(user.id).voice.setChannel(null)
+        if (args[0] === '--force') {
+          // msg.guild.member(user.id).voice.setChannel(null)
         }
         else {
-          msg.guild.member(user.id).voice.setMute(true)
+          // msg.guild.member(user.id).voice.setMute(true)
         }
       })
     }
