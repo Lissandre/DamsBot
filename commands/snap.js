@@ -13,7 +13,7 @@ module.exports = {
         users.push(member.user)
       })
 
-      for (let i = 0; i < Math.ceil(users.length/2); i++) {
+      for (let i = 0; i < Math.ceil(users.length/2)+1; i++) {
         const random = Math.floor(Math.random()*users.length)
         killUsers.push(users[random])
         users.splice(random, 1)
