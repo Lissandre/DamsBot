@@ -4,5 +4,5 @@ module.exports = {
   Fart: require('./fart'),
   Sarko: require('./sarko'),
   Vent: require('./vent'),
-  Stream: require('./stream')
+  Stream: require('./stream'),
 }

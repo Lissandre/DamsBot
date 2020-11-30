@@ -27,12 +27,20 @@ bot.on('message', msg => {
 
   console.info(`Called command: ${command}`)
 
-  if (!bot.commands.has(command)) return
-
-  try {
-    bot.commands.get(command).execute(msg, args)
-  } catch (error) {
-    console.error(error)
-    msg.reply("Petite erreur pendant l'execution de la commande...")
+  if (command === 'help') {
+    let msgValue = ''
+    bot.commands.forEach(command => {
+      msgValue += `\n**${command.name}** : ${command.description},`
+    })
+    msg.reply(msgValue)
+  } 
+  else {
+    if (!bot.commands.has(command)) return
+    try {
+      bot.commands.get(command).execute(msg, args)
+    } catch (error) {
+      console.error(error)
+      msg.reply("Petite erreur pendant l'execution de la commande...")
+    }
   }
 })
