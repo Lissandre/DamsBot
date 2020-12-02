@@ -1,7 +1,7 @@
 module.exports = {
   name: 'snap',
   description: 'Thanosify your voice channel (or --force it)',
-  async execute(msg, args, bot) {
+  async execute(msg, args) {
     if (!msg.guild.me.hasPermission('MOVE_MEMBERS')) return msg.reply('Missing the required `Move Members` permission.')
     if (msg.member.voice.channel) {
       let users = []

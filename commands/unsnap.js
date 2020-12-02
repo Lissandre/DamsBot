@@ -1,7 +1,7 @@
 module.exports = {
   name: 'unsnap',
   description: 'Recover your voices after a snap',
-  async execute(msg, args, bot) {
+  async execute(msg, args) {
     if (msg.member.voice.channel) {
       msg.guild.channels.cache.get(msg.member.voice.channel.id).members.forEach(member => {
         msg.guild.member(member.user.id).voice.setMute(false)
