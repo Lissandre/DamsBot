@@ -4,20 +4,20 @@ module.exports = {
   async execute(msg, args, bot) {
     if (!msg.guild.me.hasPermission('MOVE_MEMBERS')) return msg.reply('Missing the required `Move Members` permission.')
     if (msg.member.voice.channel) {
-      msg.delete()
       let users = []
       let killUsers = []
-      const connection = await msg.member.voice.channel.join()
 
       msg.guild.channels.cache.get(msg.member.voice.channel.id).members.forEach(member => {
         users.push(member.user)
       })
 
-      for (let i = 0; i < Math.ceil(users.length/2)+1; i++) {
+      for (let i = 0; i < Math.ceil(users.length/2); i++) {
         const random = Math.floor(Math.random()*users.length)
         killUsers.push(users[random])
         users.splice(random, 1)
       }
+
+      msg.reply(`Tu es inéluctable.`)
 
       killUsers.forEach(user => {
         if (args[0] === '--force') {
